@@ -7,17 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-request.getLocalAddr() :	<%=request.getLocalAddr() %><br>
-request.getRemoteAddr() :	<%=request.getRemoteAddr() %> <br>
-request.getContentLength() :	<%=request.getContentLength() %><br>
-request.getCharacterEncoding() :	<%=request.getCharacterEncoding() %><br>
-request.getContentType():	<%=request.getContentType() %><br>
-request.getProtocol():	<%=request.getProtocol() %><br>
-request.getMethod():	<%=request.getMethod()%><br>
-request.getRequestURI():	<%=request.getRequestURI()%><br>
-request.getContextPath():	<%=request.getContextPath()%><br>
-request.getServerName():	<%=request.getServerName()%><br>
-request.getServerPort():	<%=request.getServerPort()%><br>
+request.getLocalAddr() :	<strong><%=request.getLocalAddr() %></strong><br>
+request.getRemoteAddr() :	<strong><%=request.getRemoteAddr() %></strong> <br>
+request.getContentLength() :	<strong><%=request.getContentLength() %></strong><br>
+request.getCharacterEncoding() :	<strong><%=request.getCharacterEncoding() %></strong><br>
+request.getContentType():	<strong><%=request.getContentType() %></strong><br>
+request.getProtocol():	<strong><%=request.getProtocol() %></strong><br>
+request.getMethod():	<strong><%=request.getMethod()%></strong><br>
+request.getRequestURI():	<strong><%=request.getRequestURI()%></strong><br>
+request.getContextPath():	<strong><%=request.getContextPath()%></strong><br>
+request.getServerName():	<strong><%=request.getServerName()%></strong><br>
+request.getServerPort():	<strong><%=request.getServerPort()%></strong><br>
 	
 	
 </body>

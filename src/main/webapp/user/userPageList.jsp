@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="kr.or.ddit.util.model.PageVo"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -43,16 +46,17 @@
 					<th>생일</th>
 				</tr>
 <%
-	List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");	
+	List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
 %>
 <%
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	for(int i = 0; i < userList.size(); i++){
 %>
 				<tr>
 					<td><%=userList.get(i).getNum() %></td>
-					<td><%=userList.get(i).getUserId() %></td>
+					<td><a href="/userDetail"><%=userList.get(i).getUserId() %></a></td>
 					<td><%=userList.get(i).getName() %></td>
-					<td><%=userList.get(i).getBirth() %></td>
+					<td><%=sdf.format(sdf.parse(userList.get(i).getBirth())) %></td>
 				</tr>
 <%
 	}
@@ -64,11 +68,25 @@
 
 		<div class="text-center">
 			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
+			<li>
+				<a href="/userPageList?page=1&pageSize=10" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			
+<%
+				int pageCnt = (Integer) request.getAttribute("pageCnt");
+				for(int i = 1; i <= pageCnt; i++){
+%>
+				<li><a href="/userPageList?page=<%=i %>&pageSize=10"><%=i %></a></li>
+<%
+				}
+%>			
+			<li>
+				<a href="/userPageList?page=<%=pageCnt %>&pageSize=10" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
 			</ul>
 		</div>
 	</div>

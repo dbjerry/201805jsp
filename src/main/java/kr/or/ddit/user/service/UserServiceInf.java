@@ -51,15 +51,23 @@ public interface UserServiceInf {
 	public List<UserVo> userAllList();
 	
 	/**
-	 * 
 	 * Method : selectUserPageList
-	 * 작성자 : pc
+	 * 작성자 : 김지태
 	 * 변경이력 :
 	 * @param page
 	 * @return
-	 * Method 설명 : 페이징 처리 메서드
+	 * Method 설명 : 사용자 페이징 조회
 	 */
-	public List<UserVo> selectUserPageList(Map<PageVo, Integer> page);
+	public Map<String, Object> selectUserPageList(PageVo pageVo);
+	
+	/**
+	 * Method : getUserCnt
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @return
+	 * Method 설명 : 사용자 전체 건수 조회
+	 */
+	public int getUserCnt();
 	
 }
 

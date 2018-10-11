@@ -2,7 +2,7 @@ package kr.or.ddit.util.model;
 
 public class PageVo {
 	private int page;		//	page 번호
-	private int pageSize;	//	한 페이지의 사이즈
+	private int pageSize;	//	한 페이지의 사이즈(몇 명 나올지)
 
 	public int getPage() {
 		return page;

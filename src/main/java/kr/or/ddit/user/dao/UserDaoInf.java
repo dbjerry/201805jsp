@@ -59,7 +59,16 @@ public interface UserDaoInf {
 	 * @return
 	 * Method 설명 : 페이징처리 메서드
 	 */
-	public List<UserVo> selectUserPageList(Map<PageVo, Integer> page);
+	public List<UserVo> selectUserPageList(PageVo pageVo);
+	
+	/**
+	 * Method : getUserCnt
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @return
+	 * Method 설명 : 사용자 전체 건수 조회
+	 */
+	public int getUserCnt();
 	
 }
 
