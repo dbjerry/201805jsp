@@ -34,40 +34,73 @@
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<form class="form-horizontal" role="form">
+				
+					<% UserVo user = (UserVo) request.getAttribute("userVo"); %>
+				
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+						<div class="col-sm-10">
+						<%
+							String profilePath = user.getProfile();
+							profilePath = profilePath == null ? "/profile/minions.jpg" : profilePath;
+						%>
+							<img alt="" src=<%=profilePath %>>
+						</div>
+					</div>
+				
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디">
+							<%=user.getUserId() %>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">이름</label>
+						<div class="col-sm-10">
+							<%=user.getName() %>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">도로명주소</label>
+						<div class="col-sm-10">
+							<%=user.getAddr1() %>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
+						<div class="col-sm-10">
+							<%=user.getAddr2() %>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="pass" class="col-sm-2 control-label">우편번호</label>
+						<div class="col-sm-10">
+							<%=user.getZipcd() %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
+						<label for="pass" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
-							<label class="control-label">brown</label>
+							<%=user.getBirth() %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
+						<label for="pass" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름">
+							<%=user.getEmail() %>
 						</div>
 					</div>
+
 					<div class="form-group">
-						<label for="userNm" class="col-sm-2 control-label">별명</label>
+						<label for="pass" class="col-sm-2 control-label">연락처</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="pass" class="col-sm-2 control-label">Password</label>
-						<div class="col-sm-10">
-							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password">
+							<%=user.getTel() %>
 						</div>
 					</div>
 

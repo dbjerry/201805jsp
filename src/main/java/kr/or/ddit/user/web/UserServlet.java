@@ -45,17 +45,16 @@ public class UserServlet extends HttpServlet {
 	private void userDetail(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("userDetail");
-		
 		UserServiceInf service = new UserService();
+		
 		// 사용자 아이디가 파라미터로 넘어옴
 		String userId = request.getParameter("userId");
 		
 		// 사용자 아이디에 해당하는 사용자 정보 조회
-		UserVo selectUser = service.selectUser(userId);
+		UserVo userVo = service.selectUser(userId);
 		
 		// jsp로 위임하기 위해 사용자 정보를 request에 저장
-		request.setAttribute("userId", selectUser);
+		request.setAttribute("userVo", userVo);
 		
 		// 사용자 상세 화면으로 위임
 		RequestDispatcher rd = request.getRequestDispatcher("/user/userDetail.jsp");

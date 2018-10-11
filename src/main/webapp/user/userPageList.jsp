@@ -15,12 +15,32 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
 <title>Jsp</title>
-
 <%@include file="/common/basicLib.jsp"%>
+<style>
+	.userClick {
+		cursor : pointer;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		console.log("document.ready");
+		
+		//tr에 select (class="userClick")
+		$(".userClick").on("click", function(){
+			console.log("userClick");
+			var userId = $(this).children()[1].innerText;
+			
+			$("#userId").val(userId);
+			$("#frm").submit();
+		});
+		
+	});
+</script>
 </head>
-
+<form id="frm" action="/userDetail" method="get">
+	<input type="hidden" id="userId" name="userId" />
+</form>
 <body>
 
 	<%-- header --%>
@@ -34,63 +54,57 @@
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
-	<div class="col-sm-8 blog-main">
-		<h2 class="sub-header">사용자</h2>
-		<div class="table-responsive">
-			<table class="table table-striped">
-		
-				<tr>
-					<th>번호</th>
-					<th>사용자 아이디</th>
-					<th>사용자 이름</th>
-					<th>생일</th>
-				</tr>
-<%
-	List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-%>
-<%
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	for(int i = 0; i < userList.size(); i++){
-%>
-				<tr>
-					<td><%=userList.get(i).getNum() %></td>
-					<td><a href="/userDetail"><%=userList.get(i).getUserId() %></a></td>
-					<td><%=userList.get(i).getName() %></td>
-					<td><%=sdf.format(sdf.parse(userList.get(i).getBirth())) %></td>
-				</tr>
-<%
-	}
-%>
-			</table>
-		</div>
+					<div class="col-sm-8 blog-main">
+						<h2 class="sub-header">사용자</h2>
+						<div class="table-responsive">
+							<table class="table table-striped table-hover">
 
-		<a class="btn btn-default pull-right">사용자 등록</a>
+								<tr>
+									<th>번호</th>
+									<th>사용자 아이디</th>
+									<th>사용자 이름</th>
+									<th>생일</th>
+								</tr>
+								<% List<UserVo> userList = (List<UserVo>) request.getAttribute("userList"); %>
+								<%
+									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+									for (int i = 0; i < userList.size(); i++) {
+								%>
+								<tr class="userClick">
+									<td><%=userList.get(i).getNum()%></td>
+									<td><%=userList.get(i).getUserId()%></td>
+									<td><%=userList.get(i).getName()%></td>
+									<td><%=sdf.format(sdf.parse(userList.get(i).getBirth()))%></td>
+								</tr>
+								<%
+									}
+								%>
+							</table>
+						</div>
 
-		<div class="text-center">
-			<ul class="pagination">
-			<li>
-				<a href="/userPageList?page=1&pageSize=10" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span>
-				</a>
-			</li>
-			
-<%
-				int pageCnt = (Integer) request.getAttribute("pageCnt");
-				for(int i = 1; i <= pageCnt; i++){
-%>
-				<li><a href="/userPageList?page=<%=i %>&pageSize=10"><%=i %></a></li>
-<%
-				}
-%>			
-			<li>
-				<a href="/userPageList?page=<%=pageCnt %>&pageSize=10" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span>
-				</a>
-			</li>
-			</ul>
-		</div>
-	</div>
-</div>
+						<a class="btn btn-default pull-right">사용자 등록</a>
+
+						<div class="text-center">
+							<ul class="pagination">
+								<li><a href="/userPageList?page=1&pageSize=10"
+									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+								</a></li>
+
+								<%
+									int pageCnt = (Integer) request.getAttribute("pageCnt");
+									for (int i = 1; i <= pageCnt; i++) {
+								%>
+								<li><a href="/userPageList?page=<%=i%>&pageSize=10"><%=i%></a></li>
+								<%
+									}
+								%>
+								<li><a href="/userPageList?page=<%=pageCnt%>&pageSize=10"
+									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

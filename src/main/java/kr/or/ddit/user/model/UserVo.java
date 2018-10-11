@@ -54,7 +54,6 @@ public class UserVo {
 		this.zipcd = zipcd;
 	}
 	public String getBirth() {
-		System.out.println("birth : " + this.birth);
 		return birth;
 	}
 	public void setBirth(String birth) {
