@@ -1,7 +1,6 @@
 package kr.or.ddit.user.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import kr.or.ddit.db.SqlFactoryBuilder;
 import kr.or.ddit.user.model.UserVo;
@@ -99,6 +98,70 @@ public class UserDao implements UserDaoInf{
 		// 메서드 인자 : 문자열 = 네임스페이스(모듈명).쿼리아이디 
 		return totalUserCnt;
 //		return session.selectOne("jspUser.selectUserAll");
+	}
+
+	/**
+	 * Method : insertUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 등록
+	 */
+	@Override
+	public int insertUser(UserVo userVo) {
+		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFactory();
+		SqlSession session = factory.openSession();
+		
+		int insertCnt = session.insert("jspuser.insertUser", userVo);
+		
+		session.commit();
+		session.close();
+		
+		return insertCnt;
+		
+	}
+
+	/**
+	 * Method : deleteUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userId
+	 * @return
+	 * Method 설명 : 사용자 삭제
+	 */
+	@Override
+	public int deleteUser(String userId) {
+		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFactory();
+		SqlSession session = factory.openSession();
+		
+		int deleteCnt = session.delete("jspuser.deleteUser");
+		
+		session.commit();
+		session.close();
+		
+		return deleteCnt;
+	}
+
+	/**
+	 * Method : updateUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 수정
+	 */
+	@Override
+	public int updateUser(UserVo userVo) {
+		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFactory();
+		SqlSession session = factory.openSession();
+		
+		int updateCnt = session.update("jspuser.updateUser");
+		
+		session.commit();
+		session.close();
+		
+		return updateCnt;
 	}
 	
 }

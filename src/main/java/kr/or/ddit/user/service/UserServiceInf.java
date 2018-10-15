@@ -9,7 +9,6 @@ import kr.or.ddit.util.model.PageVo;
 public interface UserServiceInf {
 	
 	/**
-	 * 
 	 * Method : selectUserAll
 	 * 작성자 : 김지태
 	 * 변경이력 :
@@ -19,7 +18,6 @@ public interface UserServiceInf {
 	public List<UserVo> selectUserAll();
 	
 	/**
-	 * 
 	 * Method : selectUser
 	 * 작성자 : 김지태
 	 * 변경이력 :
@@ -30,7 +28,6 @@ public interface UserServiceInf {
 	public UserVo selectUser(String userId);
 	
 	/**
-	 * 
 	 * Method : selectUser
 	 * 작성자 : 김지태
 	 * 변경이력 :
@@ -41,7 +38,6 @@ public interface UserServiceInf {
 	public UserVo selectUser(UserVo userVo);
 	
 	/**
-	 * 
 	 * Method : userAllList
 	 * 작성자 : 김지태
 	 * 변경이력 :
@@ -68,6 +64,36 @@ public interface UserServiceInf {
 	 * Method 설명 : 사용자 전체 건수 조회
 	 */
 	public int getUserCnt();
+	
+	/**
+	 * Method : insertUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 등록
+	 */
+	public int insertUser(UserVo userVo);
+	
+	/**
+	 * Method : deleteUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userId
+	 * @return
+	 * Method 설명 : 사용자 삭제
+	 */
+	public int deleteUser(String userId);
+	
+	/**
+	 * Method : updateUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 수정
+	 */
+	public int updateUser(UserVo userVo);
 	
 }
 

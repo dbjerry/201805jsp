@@ -17,10 +17,29 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>Jsp</title>
-
 <%@include file="/common/basicLib.jsp"%>
-</head>
+<% UserVo user = (UserVo) request.getAttribute("userVo"); %>
+<script>
+	$(document).ready(function(){
+		console.log("document.ready");
+		
+		//tr에 select (class="userClick")
+		$(".setId").on("click", function(){
+			console.log("userId");
+			var userId = $("#userId").text(); //$(this).children()[1].innerText;
+			
+			$("#userId").val(userId);
+			$("#frm").submit();
+		});
+		
+	});
+</script>
 
+</head>
+<!-- <form id="frm" action="/userUpdateForm" method="get"> -->
+<%-- 	<%System.out.println(user.getUserId()); %> --%>
+<%-- 	<input type="hidden" id="userId2" name="userId" value="<%=user.getUserId() %>"/> --%>
+<!-- </form> -->
 <body>
 
 	<%-- header --%>
@@ -33,12 +52,11 @@
 			<%@include file="/common/left.jsp"%>
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<form class="form-horizontal" role="form">
-				
-					<% UserVo user = (UserVo) request.getAttribute("userVo"); %>
-				
+				<form id="frm" action="/userUpdateForm" method="get" class="form-horizontal" role="form">
+					<input type="hidden" id="userId2" name="userId" value="<%=user.getUserId() %>"/>
 					<div class="form-group">
-						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
+						<label for="userNm" class="
+						col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 						<%
 							String profilePath = user.getProfile();
@@ -51,7 +69,7 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<%=user.getUserId() %>
+							<label id="userId"><%=user.getUserId() %></label>
 						</div>
 					</div>
 					
@@ -104,11 +122,16 @@
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" class="userClick">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 등록</button>
+							<button type="submit" class="btn btn-default setId">사용자 수정</button>
+							<!-- 
+								button type = submit이면 form태그 안에 보내려는 값의 input태그가 있어야하고
+								type이 button이면 form태그 밖이어도 되지만 id값 중복되지않고 script로 보내야한다.
+							-->
 						</div>
 					</div>
+					
 				</form>
 			</div>
 		</div>

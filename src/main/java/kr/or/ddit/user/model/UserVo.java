@@ -1,7 +1,5 @@
 package kr.or.ddit.user.model;
 
-import java.util.Date;
-
 public class UserVo {
 	private String userId;	//	아이디
 	private String name;	//	이름

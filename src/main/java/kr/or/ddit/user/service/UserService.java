@@ -69,6 +69,45 @@ public class UserService implements UserServiceInf{
 	public int getUserCnt() {
 		return dao.getUserCnt();
 	}
+
+	/**
+	 * Method : insertUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 등록
+	 */
+	@Override
+	public int insertUser(UserVo userVo) {
+		return dao.insertUser(userVo);
+	}
+
+	/**
+	 * Method : deleteUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userId
+	 * @return
+	 * Method 설명 : 사용자 삭제
+	 */
+	@Override
+	public int deleteUser(String userId) {
+		return dao.deleteUser(userId);
+	}
+
+	/**
+	 * Method : updateUser
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param userVo
+	 * @return
+	 * Method 설명 : 사용자 수정
+	 */
+	@Override
+	public int updateUser(UserVo userVo) {
+		return dao.updateUser(userVo);
+	}
 	
 }
 

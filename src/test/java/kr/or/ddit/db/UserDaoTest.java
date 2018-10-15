@@ -2,6 +2,7 @@ package kr.or.ddit.db;
 
 import static org.junit.Assert.*;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
@@ -16,10 +17,12 @@ import org.junit.Test;
 public class UserDaoTest {
 
 	private UserDaoInf userDao;
+	private final String TEST_USER_ID = "minions";
 	
 	@Before
 	public void setup(){
 		userDao = new UserDao();
+//		userDao.deleteUser(TEST_USER_ID);
 	}
 	
 	@Test
@@ -97,6 +100,58 @@ public class UserDaoTest {
 		assertEquals(105, totalUserCnt);
 		
 	}
+	
+	/**
+	 * Method : insertUserTest
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * Method 설명 : 사용자 등록 테스트
+	 */
+//	@Test
+//	public void insertUserTest() {
+//		/***Given***/
+//		UserVo userVo = new UserVo();
+//		userVo.setUserId("minions");
+//		userVo.setPass("minions");
+//		userVo.setName("minions");
+//		userVo.setAddr1("대전시 중구");
+//		userVo.setAddr2("영민빌딩 2층");
+//		userVo.setZipcd("34940");
+//		
+//		// Date birth일 경우
+//		//GregorianCalendar gc = new GregorianCalendar(2018, 7, 8);
+//		//userVo.setBirth(gc.getTimeInMillis());
+//		userVo.setBirth("1991-08-14");
+//		userVo.setEmail("mi@ni.ons");
+//		userVo.setTel("010-0000-0000");
+//		
+//		/***When***/
+//		int cnt = userDao.insertUser(userVo);
+//		
+//		/***Then***/
+//		// 입력건수 비교
+//		assertEquals(1, cnt);
+//		
+//	}
+	
+	/**
+	 * Method : deleteUserTest
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * Method 설명 : 사용자 삭제
+	 */
+//	@Test
+//	public void deleteUserTest() {
+//		/***Given***/
+//		UserVo userVo = new UserVo();
+//		userVo.setUserId("minions");
+//		/***When***/
+//		int cnt = userDao.deleteUser(userVo.getUserId());
+//		
+//		/***Then***/
+//		assertEquals(1, cnt);
+//		
+//	}
 	
 }
 

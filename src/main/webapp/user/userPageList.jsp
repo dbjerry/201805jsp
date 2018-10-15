@@ -82,8 +82,9 @@
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right">사용자 등록</a>
-
+						<a class="btn btn-default pull-right"
+							href="/userForm">사용자 등록</a>
+							
 						<div class="text-center">
 							<ul class="pagination">
 								<li><a href="/userPageList?page=1&pageSize=10"
