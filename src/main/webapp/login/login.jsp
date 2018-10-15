@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <link rel="icon" href="../../favicon.ico">
 
     <title>Signin Template for Bootstrap</title>
