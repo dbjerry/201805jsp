@@ -27,6 +27,27 @@ public class StringUtil {
 		return fileName;
 
 	}
+
+	/**
+	 * Method : getCookie
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param cookiesString
+	 * @return
+	 * Method 설명 : Cookie의 value값 추출
+	 * String cookieString = remember=Y; userId=brown; etc=test
+	 */
+	public static String getCookie(String cookieString, String cookieName) {
+		String result = "";
+		String[] splits = cookieString.split("; ");
+		
+		for (String str : splits){
+			if(str.indexOf(cookieName + "=") >= 0){
+				result = str.substring(str.lastIndexOf("=")+1);
+			}
+		}
+		return result;
+	}
 	
 }
 

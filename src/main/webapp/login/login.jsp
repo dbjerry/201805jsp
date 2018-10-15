@@ -9,11 +9,46 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="/js/jquery-3.3.1.min.js"></script>
     <link rel="icon" href="../../favicon.ico">
 
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
+<%--     <%@inclue file="/common/basicLib.jsp" %> --%>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+	    	console.log("test");
+	    	
+	    	// remember 쿠키값이 Y이면
+	    	if(getCookie("remember") == "Y"){
+		    	// remember-me 체크박스 체크
+	    		$("#remember-me").attr("checked", true);	//	jQuery
+// 	    		document.getElementById("remember-me").checked=true; // JavaScript
+	    		
+		    	// uesrId input value를 userId쿠키 값으로 설정
+		    	$("#userId").val(getCookie("userId"));
+	    	} else {
+	    		 
+	    		$("#remember-me").attr("checked", false);
+// 	    		document.getElementById("remember-me").checked = false;
+	    	}
+	    });
+    	function getCookie(cookieName){
+    		
+    		var result = "";
+    		var cookieString = document.cookie;
+			var cookies = cookieString.split("; ");
+		
+			for (var i = 0; i < cookies.length; i++){
+				var str = cookies[i];
+				if(str.indexOf(cookieName + "=") >= 0){
+					result = str.substring(str.lastIndexOf("=")+1);
+				}
+			}
+			return result;
+    	}
+    </script>
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -37,12 +72,12 @@
       <form action="/dditLogin" method="post" class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">ID </label>
-        <input type="text" name="userId" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value="brown">
+        <input type="text" name="userId" id="userId" class="form-control" required autofocus >
         <label for="inputPassword" class="sr-only">Password </label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required value="brownpass">
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required >
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input id="remember-me" type="checkbox" value="remember-me" name="remember-me"> Remember me
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -52,7 +87,7 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<!--     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>
 	
