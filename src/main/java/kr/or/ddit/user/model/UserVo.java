@@ -81,10 +81,10 @@ public class UserVo {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-	public int getNum() {
+	public int getRnum() {
 		return rnum;
 	}
-	public void setNum(int num) {
+	public void setRnum(int num) {
 		this.rnum = num;
 	}
 	
