@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet{
 			
 			// 2.main.jsp
 			// body 영역에 이름[별명]님 안녕하세요
-			req.getSession().setAttribute("userVo", getUser);
+			req.getSession().setAttribute("S_USER", getUser);
 			
 			//dispatch
 			RequestDispatcher rd = req.getRequestDispatcher("/main.jsp");

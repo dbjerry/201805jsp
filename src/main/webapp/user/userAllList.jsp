@@ -45,18 +45,17 @@
 <%
 	List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");	
 %>
-<%
-	for(int i = 0; i < userList.size(); i++){
-%>
-				<tr>
-					<td><%=userList.get(i).getNum() %></td>
-					<td><%=userList.get(i).getUserId() %></td>
-					<td><%=userList.get(i).getName() %></td>
-					<td><%=userList.get(i).getBirth() %></td>
-				</tr>
-<%
-	}
-%>
+
+				<c:forEach items="${userList }" var="vo" varStatus="status">
+					<tr>
+						<!-- <td>${status.index + 1 }</td> -->
+						<td>${vo.rnum}</td>
+						<td>${vo.userId}</td>
+						<td>${vo.name}</td>
+						<td>${vo.birth}</td>
+						<!-- <td><fmt:formatDate value="${vo.birth}" pattern="yyyy-MM-dd" /></td> -->
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 

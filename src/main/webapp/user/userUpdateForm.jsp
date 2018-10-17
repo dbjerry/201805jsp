@@ -30,9 +30,7 @@
 
 <!-- daum 주소 API -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<%
-	UserVo uservo = (UserVo)request.getAttribute("userVo");
-%>
+
 <script>
 	$(document).ready(function(){
 		// 생일 input datepicker 적용
@@ -88,7 +86,7 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img alt="" src=<%=uservo.getProfile() %>>
+							<img alt="" src=${userVo.profile }>
 						</div>
 					</div>
 
@@ -96,7 +94,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId" readonly
-								value="<%=uservo.getUserId() %>">
+								value="${userVo.userId }">
 						</div>
 					</div>
 
@@ -104,7 +102,7 @@
 						<label for="userNm" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								value="<%=uservo.getPass() %>" >
+								value="${userVo.pass }" >
 						</div>
 					</div>
 
@@ -112,7 +110,7 @@
 						<label for="userNm" class="col-sm-2 control-label">이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="name" name="name"
-								value="<%=uservo.getName() %>" >
+								value="${userVo.name }" >
 						</div>
 					</div>
 
@@ -120,7 +118,7 @@
 						<label for="userNm" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr1" name="addr1" readonly
-								value="<%=uservo.getAddr1() %>">
+								value="${userVo.addr1 }">
 							<button id="addrSearchBtn" type="button" class="btn btn-default">검색</button>
 						</div>
 					</div>
@@ -128,7 +126,7 @@
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="addr2"
-								name="addr2" value="<%=uservo.getAddr2() %>">
+								name="addr2" value="${userVo.addr2 }">
 						</div>
 					</div>
 					
@@ -136,7 +134,7 @@
 						<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="zipcd" readonly
-								name="zipcd" value="<%=uservo.getZipcd() %>">
+								name="zipcd" value="${userVo.zipcd }">
 						</div>
 					</div>
 					
@@ -144,7 +142,7 @@
 						<label for="userNm" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="birth"
-								name="birth" value="<%=uservo.getBirth() %>">
+								name="birth" value="${userVo.birth }">
 						</div>
 					</div>
 					
@@ -152,7 +150,7 @@
 						<label for="userNm" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="email"
-								name="email" value="<%=uservo.getEmail() %>">
+								name="email" value="${userVo.email }">
 						</div>
 					</div>
 					
@@ -160,7 +158,7 @@
 						<label for="userNm" class="col-sm-2 control-label">연락처</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="tel"
-								name="tel" value="<%=uservo.getTel() %>">
+								name="tel" value="${userVo.tel }">
 						</div>
 					</div>
 

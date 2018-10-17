@@ -5,6 +5,7 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,20 +66,18 @@
 									<th>사용자 이름</th>
 									<th>생일</th>
 								</tr>
-								<% List<UserVo> userList = (List<UserVo>) request.getAttribute("userList"); %>
-								<%
-									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-									for (int i = 0; i < userList.size(); i++) {
-								%>
+								
+								
+								<c:forEach items="${userList}" var="userList">
+									
 								<tr class="userClick">
-									<td><%=userList.get(i).getNum()%></td>
-									<td><%=userList.get(i).getUserId()%></td>
-									<td><%=userList.get(i).getName()%></td>
-									<td><%=sdf.format(sdf.parse(userList.get(i).getBirth()))%></td>
+									<td>${userList.rnum}</td>
+									<td>${userList.userId}</td>
+									<td>${userList.name}</td>
+									<td>${userList.birth }</td>
+<%-- 									<td><fmt:formatDate value="${userList.birth }" pattern="yyyy-MM-dd"/></td> --%>
 								</tr>
-								<%
-									}
-								%>
+								</c:forEach>
 							</table>
 						</div>
 
@@ -91,15 +90,19 @@
 									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 								</a></li>
 
-								<%
+								<%--<%
 									int pageCnt = (Integer) request.getAttribute("pageCnt");
 									for (int i = 1; i <= pageCnt; i++) {
-								%>
-								<li><a href="/userPageList?page=<%=i%>&pageSize=10"><%=i%></a></li>
-								<%
+								%>--%>
+								
+								<c:forEach begin="1" end="${pageCnt }" var="i">
+								
+									<li><a href="/userPageList?page=${i }&pageSize=10">${i }</a></li>
+								</c:forEach>
+								<%--<%
 									}
-								%>
-								<li><a href="/userPageList?page=<%=pageCnt%>&pageSize=10"
+								%>--%>
+								<li><a href="/userPageList?page=${pageCnt }&pageSize=10"
 									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 								</a></li>
 							</ul>

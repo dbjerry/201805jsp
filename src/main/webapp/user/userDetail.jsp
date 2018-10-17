@@ -18,7 +18,7 @@
 
 <title>Jsp</title>
 <%@include file="/common/basicLib.jsp"%>
-<% UserVo user = (UserVo) request.getAttribute("userVo"); %>
+<%-- <% UserVo user = (UserVo) request.getAttribute("userVo"); %> --%>
 <script>
 	$(document).ready(function(){
 		console.log("document.ready");
@@ -53,72 +53,81 @@
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<form id="frm" action="/userUpdateForm" method="get" class="form-horizontal" role="form">
-					<input type="hidden" id="userId2" name="userId" value="<%=user.getUserId() %>"/>
+					<input type="hidden" id="userId2" name="userId" value="${userVo.userId }"/>
 					<div class="form-group">
 						<label for="userNm" class="
 						col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-						<%
+						<%-- <%
 							String profilePath = user.getProfile();
 							profilePath = profilePath == null ? "/profile/minions.jpg" : profilePath;
-						%>
-							<img alt="" src=<%=profilePath %>>
+						%> --%>
+						<c:set var="profilePath" value="${userVo.profile }"></c:set>
+						<c:choose>
+							<c:when test="${profilePath == null}">
+								<img alt="" src="/profile/minions.jpg">
+							</c:when>
+							<c:otherwise>
+								<img alt="" src=${profilePath }>
+							</c:otherwise>
+						</c:choose>
+							
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label id="userId"><%=user.getUserId() %></label>
+							<label id="userId">${userVo.userId }</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">이름</label>
 						<div class="col-sm-10">
-							<%=user.getName() %>
+							${userVo.name }
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">도로명주소</label>
 						<div class="col-sm-10">
-							<%=user.getAddr1() %>
+							${userVo.addr1 }
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<%=user.getAddr2() %>
+							${userVo.addr2 }
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<%=user.getZipcd() %>
+							${userVo.zipcd }
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
-							<%=user.getBirth() %>
+							${userVo.birth }
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
-							<%=user.getEmail() %>
+							${userVo.email }
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">연락처</label>
 						<div class="col-sm-10">
-							<%=user.getTel() %>
+							${userVo.tel }
 						</div>
 					</div>
 
