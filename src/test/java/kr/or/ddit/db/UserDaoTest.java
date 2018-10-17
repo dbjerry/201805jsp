@@ -1,10 +1,9 @@
 package kr.or.ddit.db;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Map;
 
 import kr.or.ddit.user.dao.UserDao;
 import kr.or.ddit.user.dao.UserDaoInf;
