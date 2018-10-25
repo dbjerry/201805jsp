@@ -96,5 +96,18 @@ public class UserVo {
 				+ ", profile=" + profile + ", alias=" + alias + "]\n";
 	}
 	
+	
+	/**
+	 * Method : authPass
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param encryptPass
+	 * @return
+	 * Method 설명 : 비밀번호 검증
+	 */
+	public boolean authPass(String encryptPass) {
+		return getPass().equals(encryptPass);
+	}
+	
 }
 

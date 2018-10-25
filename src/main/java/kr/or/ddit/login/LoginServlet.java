@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.encrypt.sha.KISA_SHA256;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.user.service.UserServiceInf;
@@ -79,7 +80,9 @@ public class LoginServlet extends HttpServlet{
 		UserVo getUser = service.selectUser(userId);
 		
 		//3-1 : main.jsp로 이동
-		if(getUser != null && getUser.getPass().equals(password)){
+//		if(getUser != null && getUser.getPass().equals(password)){
+		String encryptPass = KISA_SHA256.encrypt(password);
+		if(getUser != null && getUser.authPass(encryptPass)){
 			//redirect
 			//resp.sendRedirect("main.jsp?userId="+userId + "&password="+password);
 			

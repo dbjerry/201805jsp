@@ -78,7 +78,7 @@
 		<div class="row">
 
 			<%@ include file="/common/left.jsp"%>
-			<%%>
+			
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 				<form action="/userUpdateForm" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">

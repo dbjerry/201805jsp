@@ -42,6 +42,16 @@ public class UserServlet extends HttpServlet {
 	}
 
 	
+	/**
+	 * Method : userDetail
+	 * 작성자 : pc
+	 * 변경이력 :
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * Method 설명 :
+	 */
 	private void userDetail(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
@@ -105,6 +115,16 @@ public class UserServlet extends HttpServlet {
 	}
 
 	
+	/**
+	 * Method : userAllList
+	 * 작성자 : pc
+	 * 변경이력 :
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 * Method 설명 :
+	 */
 	private void userAllList(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("userAllList");
