@@ -100,57 +100,5 @@ public class UserDaoTest {
 		
 	}
 	
-	/**
-	 * Method : insertUserTest
-	 * 작성자 : 김지태
-	 * 변경이력 :
-	 * Method 설명 : 사용자 등록 테스트
-	 */
-//	@Test
-//	public void insertUserTest() {
-//		/***Given***/
-//		UserVo userVo = new UserVo();
-//		userVo.setUserId("minions");
-//		userVo.setPass("minions");
-//		userVo.setName("minions");
-//		userVo.setAddr1("대전시 중구");
-//		userVo.setAddr2("영민빌딩 2층");
-//		userVo.setZipcd("34940");
-//		
-//		// Date birth일 경우
-//		//GregorianCalendar gc = new GregorianCalendar(2018, 7, 8);
-//		//userVo.setBirth(gc.getTimeInMillis());
-//		userVo.setBirth("1991-08-14");
-//		userVo.setEmail("mi@ni.ons");
-//		userVo.setTel("010-0000-0000");
-//		
-//		/***When***/
-//		int cnt = userDao.insertUser(userVo);
-//		
-//		/***Then***/
-//		// 입력건수 비교
-//		assertEquals(1, cnt);
-//		
-//	}
-	
-	/**
-	 * Method : deleteUserTest
-	 * 작성자 : 김지태
-	 * 변경이력 :
-	 * Method 설명 : 사용자 삭제
-	 */
-//	@Test
-//	public void deleteUserTest() {
-//		/***Given***/
-//		UserVo userVo = new UserVo();
-//		userVo.setUserId("minions");
-//		/***When***/
-//		int cnt = userDao.deleteUser(userVo.getUserId());
-//		
-//		/***Then***/
-//		assertEquals(1, cnt);
-//		
-//	}
-	
 }
 
