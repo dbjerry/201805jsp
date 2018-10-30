@@ -68,7 +68,8 @@
 								<img alt="" src="/profile/minions.jpg">
 							</c:when>
 							<c:otherwise>
-								<img alt="" src=${profilePath }>
+								<!-- <img src=${profilePath }> -->
+								
 							</c:otherwise>
 						</c:choose>
 							

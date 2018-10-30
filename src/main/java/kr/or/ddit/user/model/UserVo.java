@@ -1,6 +1,9 @@
 package kr.or.ddit.user.model;
 
-public class UserVo {
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
+public class UserVo implements HttpSessionBindingListener{
 	private String userId;	//	아이디
 	private String name;	//	이름
 	private String pass;	//	비밀번호
@@ -107,6 +110,32 @@ public class UserVo {
 	 */
 	public boolean authPass(String encryptPass) {
 		return getPass().equals(encryptPass);
+	}
+	
+	
+	/**
+	 * Method : valueBound
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param event
+	 * Method 설명 : value들을 묶는다(bound)
+	 */
+	@Override
+	public void valueBound(HttpSessionBindingEvent event) {
+		System.out.println("uservo : " + event.getName());
+	}
+	
+	
+	/**
+	 * Method : valueUnbound
+	 * 작성자 : 김지태
+	 * 변경이력 :
+	 * @param event
+	 * Method 설명 : 
+	 */
+	@Override
+	public void valueUnbound(HttpSessionBindingEvent event) {
+		
 	}
 	
 }

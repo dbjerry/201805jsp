@@ -2,6 +2,7 @@ package kr.or.ddit.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +26,9 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-			
+		
+		String newParameter = req.getParameter("newParameter");
+		
 		UserVo userVo = new UserVo();
 		//1.사용자 아이디, 비밀번호를 request객체에서 받아온다
 		//2.db에서 조회해온 아이디, 비밀번호를 체크를 한다
@@ -36,10 +39,6 @@ public class LoginServlet extends HttpServlet{
 		String userId = req.getParameter("userId");
 		String password = req.getParameter("password");
 		String rememberMe = req.getParameter("remember-me");
-		
-		// remember-me 파라미터 받아서 sysout으로 출력
-		System.out.println("rememberMe : " + rememberMe);
-		
 		
 		// rememberMe == null : 아이디 기억 사용 안함
 		if(rememberMe == null){
