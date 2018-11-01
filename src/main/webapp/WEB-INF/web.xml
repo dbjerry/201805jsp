@@ -39,6 +39,18 @@
     <servlet-name>dditLogin</servlet-name>
     <url-pattern>/dditLogin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>velocityServlet</servlet-name>
+    <servlet-class>org.apache.velocity.tools.view.VelocityViewServlet</servlet-class>
+    <init-param>
+    	<param-name>org.apache.velocity.properties</param-name>
+    	<param-value>/WEB-INF/velocity.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>velocityServlet</servlet-name>
+    <url-pattern>*.vm</url-pattern>
+  </servlet-mapping>
   <error-page>
     <exception-type>java.lang.ArithmeticException</exception-type>
     <location>/error/type/arithmetic.jsp</location>

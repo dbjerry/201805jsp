@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>velocity</title>
+</head>
+<body>
+	application.applicationAttr : <b>$!application.applicationAttr</b><br>
+	session.sessionAttr : <b>$!session.sessionAttr</b><br>
+	request.requestAttr : <strong>$!request.requestAttr</strong><br>
+	
+	#foreach($minions in $!minions)
+		$minions<br>
+	#end
+
+	#if($!minions.size() > 0)
+		<strong>0보다 크다</strong>
+	#end
+</body>
+</html>
+
