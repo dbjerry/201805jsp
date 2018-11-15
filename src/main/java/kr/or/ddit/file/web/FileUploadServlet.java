@@ -52,7 +52,7 @@ public class FileUploadServlet extends HttpServlet {
 		
 		// 파일 쓰기
 //		String encodeName = new String(fileName.getBytes(), "UTF-8");
-		profilePart.write("C:\\ddit\\A_TeachingMaterial\\6.JspSrpgin\\upload\\" + fileName);
+		profilePart.write("C:\\ddit\\A_TeachingMaterial\\6.JspSpring\\upload\\" + fileName);
 		profilePart.delete();	//	파일업로드 과정에서 사용한 디스크 임시 영역을 정리
 		
 	}

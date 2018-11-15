@@ -51,15 +51,15 @@ public class UserFormServlet extends HttpServlet {
 		// 파라미터 받아오기
 		// userId, name, pass, addr1, addr2, birth, zipcd, email, tel
 		
-		// String userId = request.getParameter("userId");
-		// String name = request.getParameter("name");
-		// String pass = request.getParameter("pass");
-		// String addr1 = request.getParameter("addr1");
-		// String addr2 = request.getParameter("addr2");
-		// String birth = request.getParameter("birth");
-		// String zipcd = request.getParameter("zipcd");
-		// String email = request.getParameter("email");
-		// String tel = request.getParameter("tel");
+//		 String userId = request.getParameter("userId");
+//		 String name = request.getParameter("name");
+//		 String pass = request.getParameter("pass");
+//		 String addr1 = request.getParameter("addr1");
+//		 String addr2 = request.getParameter("addr2");
+//		 String birth = request.getParameter("birth");
+//		 String zipcd = request.getParameter("zipcd");
+//		 String email = request.getParameter("email");
+//		 String tel = request.getParameter("tel");
 		String profile = "/profile/" + fileName;
 		
 		UserVo uservo = new UserVo();

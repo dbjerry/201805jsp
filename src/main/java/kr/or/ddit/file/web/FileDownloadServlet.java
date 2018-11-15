@@ -25,7 +25,7 @@ public class FileDownloadServlet extends HttpServlet {
 		UserServiceInf userService = new UserService();
 		UserVo userVo = userService.selectUser(userId);
 		
-		File f = new File("C:\\ddit\\A_TeachingMaterial\\6.JspSrpgin\\upload\\moon.png");
+		File f = new File("C:\\ddit\\A_TeachingMaterial\\6.JspSpring\\upload\\moon.png");
 		
 		FileInputStream fis = new FileInputStream(f);
 		byte[] buffer = new byte[512];
